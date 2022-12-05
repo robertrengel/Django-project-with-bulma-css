@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Lista de departamento
+{% endblock title %}
+
+
+{% block content %}
+<h1 class= "title" >Departamentos de la empresa</h1>
+
+<table class="table">
+    <tbody>
+      {% for elemento in  lista%}
+        <tr>
+        <td>{{elemento.name}}</td>
+        <td>{{elemento.short_name}}</td>
+
+        <td>
+          
+            <a href="{% url 'personal_app:personal_departamento' elemento.name %}">
+              <button class ="button is-link" >VER EMPLEADOS</button>    
+            </a>
+
+          
+        </td>
+        </tr>
+      {% endfor %}
+    </tbody>      
+  </table>
+    
+{% endblock content %}
+    

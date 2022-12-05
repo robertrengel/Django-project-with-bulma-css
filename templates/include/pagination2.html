@@ -1,0 +1,37 @@
+{% load static %}
+<nav class="pagination" role="navigation" aria-label="pagination">
+    
+        {% if page_obj.has_previous %}
+            <!-- <a href="?page=1">&laquo; first</a> -->
+            <!-- <a class="pagination-previous" title="This is the first page" href="?page={{ page_obj.previous_page_number }}">previous</a> -->
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <!-- <a class="pagination-next" href="?page={{ page_obj.next_page_number }}">next</a> -->
+            <!-- <a class="pagination-next"href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a> -->
+        {% endif %}
+
+
+        <ul id = "ul_list" class="pagination-list">
+            
+            {% for pagina in paginator.page_range %}
+                
+            <li>
+                <a href="?page={{ pagina }}" class="pagination-link" aria-label="Page 1" aria-current="page">{{ pagina }} {{page.number}}</a>
+            </li>
+            
+            {% endfor %}
+                
+
+            <!-- <li><span class="pagination-ellipsis">&hellip;</span></li> -->
+
+            <!-- <li> -->
+                <!-- <a href="?page={{ page_obj.number }}" class="pagination-link is-current" aria-label="Page 1" aria-current="page">{{ page_obj.paginator.num_pages }} </a> -->
+            <!-- </li> -->
+            <!-- Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. -->
+        </ul>
+
+       
+    
+</nav>
+<script src="{% static 'JS/pagination.js' %}"></script>

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Detalle Personal
+{% endblock title %}
+
+{% block content %}
+<body>
+    <h1 class="title">Detalle de personal</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Departamento</th>
+            <th>Trabajo</th>
+            <th>Habilidades</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+            <td>
+              <figure class="image is-128x128">
+                
+                {% if object.image %}
+                  <img class="is-rounded" src="{{object.image.url}}">
+                {% else %}
+                <img class="is-rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-gR7_SWLRCtDiOaVUiM5VpGz85niDDNlFiEpnoAVfV5jV7tS52am4y3p3316MHiwZ38&usqp=CAU">
+                {% endif %}
+                  
+              </figure>
+            </td>
+            <td>{{object.id}}</td>
+            <td>{{object.first_name.capitalize}}</td>
+            <td>{{object.last_name.capitalize}}</td>
+            <td>{{object.departamento}}</td>
+            <td>{{object.get_job_display}}</td>
+            <td>
+              <ul>
+                
+                  
+                  {% for e in object.skill.all %}
+                    <li>
+
+                      {{e}}
+                    </li>
+                  {% endfor %}
+                    
+                
+              </ul>
+            
+              
+           
+                
+
+            </td>
+            
+            </tr>
+          
+        </tbody>      
+      </table>
+
+</body>
+</html>
+
+{% endblock content %}

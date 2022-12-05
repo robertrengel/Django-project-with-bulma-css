@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Vista de datos
+{% endblock title %}
+
+
+
+{% block content %}
+
+    <h1 class="title">Administrar Personal</h1>
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Departamento</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for elemento in  object_list%}
+          <tr>
+          <td>{{elemento.id}}</td>
+          <td>{{elemento.first_name.capitalize}}</td>
+          <td>{{elemento.last_name.capitalize}}</td>
+          <td>{{elemento.departamento}}</td>
+          <td>
+            
+              <a href="{% url 'personal_app:update_personal' elemento.id %}">
+                <button class ="button is-success" >EDITAR</button>    
+              </a>
+              <a href="{% url 'personal_app:delete_personal' elemento.id %}">
+                <button class ="button is-danger" >ELIMINAR</button>    
+              </a>
+
+            
+          </td>
+          </tr>
+        {% endfor %}
+      </tbody>      
+    </table>
+    <div class="column is-two-fifths">
+      {% include 'include/pagination.html' %}
+
+    </div>
+
+
+{% endblock content %}

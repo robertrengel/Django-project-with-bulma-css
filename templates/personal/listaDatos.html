@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Vista de datos
+{% endblock title %}
+
+
+
+{% block content %}
+
+    <h1 class="title">Lista de datos de empleados</h1>
+
+    <form class="columns">{% csrf_token %}
+      <div class="column is-two-fifths">
+        <input class="is-two-fifths input is-primary" id= kword name=kword type="text" placeholder="Buscar Registro">
+      </div>
+      <div class="column">
+        <button class="button is-link" type="submit">Buscar</button>
+      </div>
+
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Departamento</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for elemento in  object_list%}
+          <tr>
+          <td>{{elemento.id}}</td>
+          <td>{{elemento.first_name.capitalize}}</td>
+          <td>{{elemento.last_name.capitalize}}</td>
+          <td>{{elemento.departamento}}</td>
+          <td>
+            
+              <a href="{% url 'personal_app:detalle_empleado' elemento.id %}">
+                <button class ="button is-link" >VER</button>    
+              </a>
+
+            
+          </td>
+          </tr>
+        {% endfor %}
+      </tbody>      
+    </table>
+    <div class="column is-two-fifths">
+      {% include 'include/pagination.html' %}
+
+    </div>
+
+
+{% endblock content %}
+    

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Actualizar Personal
+{% endblock title %}
+    
+
+{% block content %}
+
+    <h1 class="title">Actualizar registro de personal</h1>
+    <div class="columns">
+        <div class="column is-half">
+            <form action="" method="post">{% csrf_token %}
+
+                <div class="field">
+                    <label class="label">Nombre</label>
+                    <div class="control">
+                        {{form.first_name}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Apellido</label>
+                    <div class="control">
+                    {{form.last_name}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Trabajo</label>
+                    <div class="select">
+                        {{form.job}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Departamento</label>
+                    <div class="select">
+                        {{form.departamento}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Habilidades</label>
+                    <div class="select is-multiple">
+                    {{form.skill}}
+                    </div>
+                </div>
+
+                <button type="submit" class="button is-link">ACTUALIZAR</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

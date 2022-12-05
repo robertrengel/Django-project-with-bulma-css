@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Personal por departamento
+{% endblock title %}
+
+
+{% block content %}
+    <h1 class="title">Personal del departamento</h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <!-- <th>ID</th> -->
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Departamento</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for elemento in  personal%}
+            <tr>
+            <!-- <td>{{personal.id}}</td> -->
+            <td>{{elemento.first_name.capitalize}}</td>
+            <td>{{elemento.last_name.capitalize}}</td>
+            <td>{{elemento.departamento}}</td>
+            <td>
+              
+                <a href="{% url 'personal_app:detalle_empleado' elemento.id %}">
+                  <button class ="button is-link" >VER</button>    
+                </a>
+  
+              
+            </td>
+            </tr>
+          {% endfor %}
+        </tbody>      
+      </table>
+{% endblock content %}
+    
+    

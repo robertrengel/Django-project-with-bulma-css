@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %}
+    Inicio
+{% endblock title %}
+
+
+{% block content %}
+   
+    <!-- inicio codigo de imagen -->
+    <figure class="image">
+        <img src="{% static 'img/inicio2.jpg' %}">
+      </figure>
+    <!-- final codigo imagen -->
+
+    <!-- inicio mensaja de bienvenida -->
+    <!-- <div class="block"></div> -->
+
+    <div class="block">
+        <div class="column is-half is-offset-one-quarter">
+            <h2 class="title">BIENVENIDO AL SISTEMA DE REGISTRO DE EMPLEADOS</h1>
+        </div>
+    </div>
+
+    <!-- <div class="block"></div> -->
+
+    <div class="block">
+        <div class="column is-half is-offset-one-quarter">
+            <article class="message is-info is-medium">
+                <div class="message-body">
+                    Este es un sistema de ejemplo en el que aprenderemos a utilizar Django como herramienta para el desarrollo de proyectos web
+                </div>
+            </article>
+        </div>
+    </div>
+        <!-- final mensaja de bienvenida -->
+{% endblock content %}
+    
+    

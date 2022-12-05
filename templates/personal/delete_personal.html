@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Eliminar Registro
+{% endblock title %}
+
+
+{% block content %}
+    
+
+<h1 class="title">Eliminar registro de personal</h1>
+<form action="" method="post">{% csrf_token %}
+    <h2 class="title is-4">Desea eliminar el registro de: {{empleados.first_name}} {{empleados.last_name}}</h2>
+    <button type="submit" class="button is-danger">Eliminar</button>
+</form>
+
+{% endblock content %}

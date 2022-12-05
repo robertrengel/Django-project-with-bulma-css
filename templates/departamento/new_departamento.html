@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Nuevo departamento
+{% endblock title %}
+
+
+{% block content %}
+
+
+
+<h1 class="title">Registro de nuevo departamento y empleado</h1>
+    <div class="columns">
+        <div class="column is-half">
+            <form action="" method="post">{% csrf_token %}
+                
+                <div class="field">
+                    <label class="label">Nombre</label>
+                    <div class="control">
+                        {{form.first_name}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Apellido</label>
+                    <div class="control">
+                        {{form.last_name}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Departamento</label>
+                    <div class="control">
+                        {{form.departamento}}
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Nombre corto de departamento</label>
+                    <div class="control">
+                        {{form.shortname}}
+                    </div>
+                </div>
+
+                
+                
+                
+                <button type="submit" class="button is-link">AGREGAR</button>
+            </form>
+        </div>
+    </div>
+    {% endblock content %}
